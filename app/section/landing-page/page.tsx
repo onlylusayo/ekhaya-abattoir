@@ -172,7 +172,6 @@ export default function HomePage() {
               { title: "Beef Slaughtering", desc: "Professional cattle processing with strict veterinary inspection.", img: "/images/slaughtering.jpeg", icon: <FaCow /> },
               { title: "Goat & Sheep", desc: "Quick and hygienic processing for small livestock.", img: "/images/p1.jpeg", icon: <FaCow /> },
               { title: "Cold Room Storage", desc: "Keep your meat fresh in our industrial-grade cold rooms.", img: "/images/storage.jpeg", icon: <FaSnowflake /> },
-              { title: "Chicken Processing", desc: "Safe and hygienic poultry processing for all your chicken needs.", img: "/images/chiken.jpeg", icon: <FaDrumstickBite /> },
             ].map((service, i) => (
               <motion.div
                 key={i}
