@@ -234,45 +234,135 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= PRICE LIST ================= */}
-      <section className="min-h-screen flex flex-col lg:flex-row">
-        <div className="lg:w-1/2 p-16 bg-[#D7A34A] text-white flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
-            Ekhaya Abattoir <br /> Processing Price List
-          </h1>
-          <p className="text-lg md:text-xl mb-8">
-            We provide the highest quality livestock and poultry processing services with transparent pricing.
-          </p>
-          <ul className="space-y-4 list-disc ml-6">
-            <li>Livestock Slaughtering and Preparation</li>
-            <li>Cold Storage and Carcass Management</li>
-            <li>Custom Packaging and Vacuum Sealing</li>
-          </ul>
+      {/* ================= How it works in details ================= */}
+    <section className="py-24 bg-[#FAFAFA]">
+      <div className="max-w-[1280px] mx-auto px-6">
+        {/* SECTION INTRO */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="max-w-3xl mx-auto mb-20 text-center"
+      >
+        <h2 className="text-[40px] font-semibold text-black mb-4">
+          Processing Standards & Operations
+        </h2>
+        <p className="text-gray-600 leading-relaxed">
+          Ekhaya Abattoir operates as a controlled processing facility focused on
+          animal welfare, hygiene, and traceability, ensuring that all meat
+          entering the Ekhaya Farm-Foods supply chain meets strict quality
+          standards.
+        </p>
+      </motion.div>
+
+
+        {/* CONTENT BLOCKS */}
+        <div className="space-y-24">
+          {/* SLAUGHTER PROCESS */}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-4 text-[#D7A34A]">
+                Slaughter Process
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Slaughter at Ekhaya Abattoir is carried out in a controlled and
+                humane manner, following approved animal welfare protocols.
+                Processes are designed to minimize stress, maintain efficiency,
+                and ensure consistency in meat quality.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
+            >
+              <Image
+                src="/images/abattoir/slaughter.jpg"
+                alt="Humane slaughter process"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+
+          {/* HYGIENE & HANDLING */}
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* IMAGE – LEFT */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
+          >
+            <Image
+              src="/images/abattoir/hygiene.jpg"
+              alt="Hygienic meat handling"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+
+          {/* TEXT – RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold mb-4 text-[#D7A34A]">
+              Hygiene & Handling
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              Strict hygiene and handling protocols are enforced throughout the
+              facility. This includes sanitation procedures, protective
+              equipment usage, temperature control, and careful carcass
+              handling to prevent contamination.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="lg:w-1/2 p-16 flex flex-col gap-8 bg-[fff5]/10">
-          {[
-            ["Cattle Processing", "MWK 45,000"],  
-            ["Goat / Sheep Processing", "MWK 8,000"],
-            ["Chicken Processing", "MWK 300"],
-            ["Cold Room Storage", "MWK 5,000"],
-          ].map(([title, price], i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-xl flex justify-between shadow-md"
+
+          {/* ECOSYSTEM ROLE */}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              <div>
-                <p className="text-xl font-bold">{title}</p>
-                <p className="text-sm text-gray-500">Processing</p>
-              </div>
-              <div className="text-right">
-                <p className="text-2xl font-extrabold text-[#D7A34A]">{price}</p>
-                <p className="text-sm text-gray-500">Rate</p>
-              </div>
-            </div>
-          ))}
+              <h3 className="text-2xl font-bold mb-4 text-[#D7A34A]">
+                Role within the Ekhaya Ecosystem
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Ekhaya Abattoir functions as a dedicated processing hub within the
+                Ekhaya ecosystem. All processed meat is supplied exclusively to
+                Ekhaya Farm-Foods, enabling full traceability from farm to retail
+                and ensuring consistent quality across the value chain.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
+            >
+              <Image
+                src="/images/abattoir/ecosystem.jpg"
+                alt="Ekhaya supply chain"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+
     </main>
   );
 }
