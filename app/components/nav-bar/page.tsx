@@ -1,117 +1,112 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
-import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-      lastScrollY = window.scrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/section/" },
-    { name: "Services", href: "/section/" },
-    { name: "Contact", href: "/contact", bold: true },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Technology", href: "/technology" },
+    { name: "Impact", href: "/impact" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const navItemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  };
+  // Split links: first half left, second half right
+  const leftLinks = navItems.slice(0, 2);
+  const rightLinks = navItems.slice(2);
 
   return (
-    <motion.nav
-      animate={{ y: hidden ? -90 : 0 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="bg-black py-1.5 shadow-sm z-50"
-    >
-      <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
-
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/images/logo1.png"
-            alt="Ekhaya Abattoir Logo"
-            width={110}
-            height={77}
-            priority
-          />
-        </Link>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 font-medium">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50">
+      <div className="bg-white px-8 py-2 rounded-full flex items-center justify-between shadow-lg border border-gray-100">
+        
+        {/* Left Links */}
+        <ul className="hidden md:flex items-center space-x-8">
+          {leftLinks.map((item) => (
+            <li key={item.name}>
               <Link
-                key={item.name}
                 href={item.href}
-                className={`relative px-1 transition ${
-                  isActive
-                    ? "text-white font-bold after:block after:h-1 after:bg-[#D7A34A] after:mt-1 after:rounded"
-                    : "text-white hover:text-[#D7A34A]"
-                }`}
+                className="text-slate-700 font-medium hover:text-[#D7A34A] transition"
               >
                 {item.name}
               </Link>
-            );
-          })}
+            </li>
+          ))}
+        </ul>
+
+        {/* Logo in Center */}
+        <div className="flex items-center">
+          <Image
+            src="/images/logo-ab.png"
+            alt="Ekhaya Abattoir Logo"
+            width={90}
+            height={50}
+          />
         </div>
 
-        {/* Mobile Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white text-2xl"
-        >
-          {open ? <FiX /> : <FiMenu />}
-        </button>
+        {/* Right Links */}
+        <ul className="hidden md:flex items-center space-x-8">
+          {rightLinks.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                className="text-slate-700 font-medium hover:text-[#D7A34A] transition"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden text-gray-800 text-2xl ml-2">
+          <button onClick={() => setOpen(!open)}>
+            {open ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Pop-Out Menu */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            className="md:hidden bg-black"
-          >
-            <div className="flex flex-col px-6 py-3 space-y-3">
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black z-40"
+              onClick={() => setOpen(false)}
+            />
+
+            {/* Floating Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                         bg-white rounded-xl shadow-2xl z-50 w-11/12 max-w-sm p-8 flex flex-col items-center space-y-6"
+            >
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-white hover:text-[#D7A34A]"
+                  className="text-lg font-medium text-gray-800 hover:text-[#D7A34A] transition"
                 >
                   {item.name}
                 </Link>
               ))}
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }

@@ -301,7 +301,7 @@ export default function HomePage() {
             className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
           >
             <Image
-              src="/images/abattoir/hygiene.jpg"
+              src="/images/h-h.png"
               alt="Hygienic meat handling"
               fill
               className="object-cover"
@@ -352,7 +352,7 @@ export default function HomePage() {
               className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
             >
               <Image
-                src="/images/abattoir/ecosystem.jpg"
+                src="/images/eco-sy.png"
                 alt="Ekhaya supply chain"
                 fill
                 className="object-cover"
