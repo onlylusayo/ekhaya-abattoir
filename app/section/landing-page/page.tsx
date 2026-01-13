@@ -283,7 +283,7 @@ export default function HomePage() {
               className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
             >
               <Image
-                src="/images/abattoir/slaughter.jpg"
+                src="/images/s-process.png"
                 alt="Humane slaughter process"
                 fill
                 className="object-cover"
