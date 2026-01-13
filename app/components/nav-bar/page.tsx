@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false); // for scroll hide
 
   const navItems = [
     { name: "About", href: "/about" },
@@ -17,21 +18,41 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
-  // Split links: first half left, second half right
   const leftLinks = navItems.slice(0, 2);
   const rightLinks = navItems.slice(2);
 
+  // Scroll hide/reveal logic
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        setHidden(true); // scrolling down
+      } else {
+        setHidden(false); // scrolling up
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50">
+    <motion.nav
+      animate={{ y: hidden ? -120 : 0 }} // hide upwards when scrolling down
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50"
+    >
       <div className="bg-white px-8 py-2 rounded-full flex items-center justify-between shadow-lg border border-gray-100">
-        
         {/* Left Links */}
         <ul className="hidden md:flex items-center space-x-8">
           {leftLinks.map((item) => (
             <li key={item.name}>
               <Link
                 href={item.href}
-                className="text-slate-700 font-medium hover:text-[#D7A34A] transition"
+                className="text-slate-700 font-medium hover:text-[#18bef0] transition"
               >
                 {item.name}
               </Link>
@@ -39,7 +60,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Logo in Center */}
+        {/* Logo */}
         <div className="flex items-center">
           <Image
             src="/images/logo-ab.png"
@@ -55,7 +76,7 @@ export default function Navbar() {
             <li key={item.name}>
               <Link
                 href={item.href}
-                className="text-slate-700 font-medium hover:text-[#D7A34A] transition"
+                className="text-slate-700 font-medium hover:text-[#18bef0] transition"
               >
                 {item.name}
               </Link>
@@ -98,7 +119,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-lg font-medium text-gray-800 hover:text-[#D7A34A] transition"
+                  className="text-lg font-medium text-gray-800 hover:text-[#18bef0] transition"
                 >
                   {item.name}
                 </Link>
@@ -107,6 +128,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
