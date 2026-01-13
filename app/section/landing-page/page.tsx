@@ -139,7 +139,7 @@ export default function HomePage() {
     {/* Image */}
     <div className="flex-1 relative w-full h-80 md:h-[400px] rounded-xl overflow-hidden shadow-lg">
       <Image
-        src="/images/butcher.png"
+        src="/images/abt-pic.jpg"
         alt="About Ekhaya Abattoir"
         fill
         className="object-cover"
