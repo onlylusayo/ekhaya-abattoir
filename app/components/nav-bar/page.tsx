@@ -41,13 +41,14 @@ export default function Navbar() {
       {/* NAV BAR */}
       <div className="bg-white px-8 py-2 rounded-full shadow-lg border border-gray-100">
         <div className="grid grid-cols-3 items-center">
+          
           {/* LEFT LINKS */}
           <ul className="hidden md:flex items-center space-x-8 justify-start">
             {leftLinks.map((item) => (
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-slate-700 font-medium hover:text-[#18bef0] transition"
+                  className="text-slate-700 font-medium hover:text-[#D7A34A] transition"
                 >
                   {item.name}
                 </Link>
@@ -55,15 +56,18 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CENTER LOGO */}
+          {/* CENTER LOGO (NOW LINKED TO HOME) */}
           <div className="flex justify-center">
-            <Image
-              src="/images/logo-ab.png"
-              alt="Ekhaya Abattoir Logo"
-              width={90}
-              height={50}
-              priority
-            />
+            <Link href="/" aria-label="Go to homepage">
+              <Image
+                src="/images/logo-ab.png"
+                alt="Ekhaya Abattoir Logo"
+                width={90}
+                height={50}
+                priority
+                className="cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* RIGHT LINKS / MOBILE MENU */}
@@ -81,7 +85,7 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Mobile Button */}
+            {/* MOBILE MENU BUTTON */}
             <button
               className="md:hidden text-gray-800 text-2xl ml-2"
               onClick={() => setOpen(!open)}
