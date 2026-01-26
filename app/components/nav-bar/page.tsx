@@ -77,7 +77,7 @@ export default function Navbar() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-700 font-medium hover:text-[#18bef0] transition"
+                    className="text-slate-700 font-medium hover:text-[#D7A34A] transition"
                   >
                     {item.name}
                   </Link>
@@ -122,7 +122,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-lg font-medium text-gray-800 hover:text-[#18bef0]"
+                  className="text-lg font-medium text-gray-800 hover:text-[#D7A34A]"
                 >
                   {item.name}
                 </Link>
