@@ -30,7 +30,7 @@ export default function HomePage() {
   return (
     <main className="font-sans">
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <header className="relative h-[700px] flex items-center text-white overflow-hidden">
         <motion.div
           initial={{ scale: 1.1 }}
@@ -61,6 +61,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-[40px] md:text-[60px] font-heading font-bold leading-tight mb-6"
             >
+            <br />
               Fresh. Safe. <br /> Hygienic Meat Processing.
             </motion.h1>
 
