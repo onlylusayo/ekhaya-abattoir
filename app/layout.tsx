@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/nav-bar/page";
 import Footer from "./components/footer/page";
 
+/* Google Fonts */
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,6 +14,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+/* Local Ekhaya Display Font */
+const ekhayaFont = localFont({
+  src: "../public/fonts/EkhayaDisplayFont.otf",
+  variable: "--font-ekhaya",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +34,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          antialiased
+          font-sans
+          ${geistSans.variable}
+          ${geistMono.variable}
+          ${ekhayaFont.variable}
+        `}
       >
         <Navbar />
         {children}

@@ -171,7 +171,7 @@ export default function HomePage() {
           >
             {[
               { title: "Beef Slaughtering", desc: "Professional cattle processing with strict veterinary inspection.", img: "/images/slaughtering.jpeg", icon: <FaCow /> },
-              { title: "Goat & Sheep", desc: "Quick and hygienic processing for small livestock.", img: "/images/p1.jpeg", icon: <FaCow /> },
+              { title: "Goat and Sheep", desc: "Quick and hygienic processing for small livestock.", img: "/images/p1.jpeg", icon: <FaCow /> },
               { title: "Cold Room Storage", desc: "Keep your meat fresh in our industrial-grade cold rooms.", img: "/images/storage.jpeg", icon: <FaSnowflake /> },
             ].map((service, i) => (
               <motion.div
@@ -214,7 +214,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row justify-between items-center relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 -translate-y-1/2" />
 
-            {["Booking", "Drop-off", "Inspection", "Slaughter", "Process"].map(
+            {["Booking", "Drop off", "Inspection", "Slaughter", "Process"].map(
               (step, i) => (
                 <div key={i} className="bg-white p-4 flex flex-col items-center text-center z-10">
                   <div className="w-16 h-16 bg-white text-[#D7A34A] border-2 border-[#D7A34A] rounded-full flex items-center justify-center text-xl font-bold mb-4">
@@ -229,7 +229,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-[#D7A34A] text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 border-4 border-white shadow-lg">
                 <FaCheck />
               </div>
-              <h4 className="font-bold">Pick-up</h4>
+              <h4 className="font-bold">Pick up</h4>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function HomePage() {
         className="max-w-3xl mx-auto mb-20 text-center"
       >
         <h2 className="text-[40px] font-semibold text-black mb-4">
-          Processing Standards & Operations
+          Processing Standards and Operations
         </h2>
         <p className="text-gray-600 leading-relaxed">
           Ekhaya Abattoir operates as a controlled processing facility focused on
@@ -316,7 +316,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-4 text-[#D7A34A]">
-              Hygiene & Handling
+              Hygiene and Handling
             </h3>
             <p className="text-gray-600 leading-relaxed">
               Strict hygiene and handling protocols are enforced throughout the

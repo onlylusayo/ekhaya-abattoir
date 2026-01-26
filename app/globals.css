@@ -1,17 +1,42 @@
 @import "tailwindcss";
 
+/* ================================
+   Local Ekhaya Display Font
+================================ */
+@font-face {
+  font-family: "Ekhaya";
+  src: url("/fonts/EkhayaDisplayFont.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================================
+   Root Theme Variables
+================================ */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Typography */
+  --font-body: Arial, Helvetica, system-ui, sans-serif;
+  --font-display: "Ekhaya", system-ui, sans-serif;
 }
 
+/* ================================
+   Tailwind Theme Mapping
+================================ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: var(--font-body);
+  --font-mono: monospace;
 }
 
+/* ================================
+   Dark Mode
+================================ */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +44,23 @@
   }
 }
 
+/* ================================
+   Base Styles
+================================ */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+/* ================================
+   Headings (Brand Font)
+================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
 }
