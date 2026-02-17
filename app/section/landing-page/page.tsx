@@ -88,16 +88,25 @@ export default function HomePage() {
                 Book <br /> Slaughtering
               </motion.button>
 
-            <Link href="/contact">
               <motion.button
                 variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="border-2 border-white px-8 py-4 rounded-lg font-semibold"
               >
-                Contact Us
+                Contact  Us
               </motion.button>
-            </Link>
+            
+            {/* <Link href="/contact">
+              <motion.button
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="border-2 border-white px-8 py-4 rounded-lg font-semibold"
+              >
+                Contact  Us
+              </motion.button>
+            </Link> */}
             </motion.div>
 
             <motion.div
