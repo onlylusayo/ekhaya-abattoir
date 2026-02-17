@@ -12,14 +12,15 @@ export default function Navbar() {
 
   const navItems = [
     { name: "About", href: "/about" },
-    { name: "Services", href: "#" },
-    { name: "Technology", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Services", href: "/service" },
+    { name: "Technology", href: "/technology" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const leftLinks = navItems.slice(0, 2);
   const rightLinks = navItems.slice(2);
 
+  // Hide navbar on scroll down
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -41,7 +42,6 @@ export default function Navbar() {
       {/* NAV BAR */}
       <div className="bg-white px-8 py-2 rounded-full shadow-lg border border-gray-100">
         <div className="grid grid-cols-3 items-center">
-          
           {/* LEFT LINKS */}
           <ul className="hidden md:flex items-center space-x-8 justify-start">
             {leftLinks.map((item) => (
@@ -56,7 +56,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CENTER LOGO (NOW LINKED TO HOME) */}
+          {/* CENTER LOGO */}
           <div className="flex justify-center">
             <Link href="/" aria-label="Go to homepage">
               <Image
@@ -70,7 +70,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* RIGHT LINKS / MOBILE MENU */}
+          {/* RIGHT LINKS & MOBILE MENU BUTTON */}
           <div className="flex justify-end items-center">
             <ul className="hidden md:flex items-center space-x-8">
               {rightLinks.map((item) => (
@@ -100,6 +100,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <>
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
@@ -108,6 +109,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
             />
 
+            {/* Menu */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
