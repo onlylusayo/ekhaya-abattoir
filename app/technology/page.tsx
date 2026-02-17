@@ -15,22 +15,22 @@ export default function TechnologyPage() {
     {
       title: 'Industrial Cold Chain Systems',
       desc: 'Advanced refrigeration and blast chilling rapidly reduce carcass temperature to preserve freshness and prevent bacterial growth.',
-      img: '/images/cold-chain.jpg'
+      img: '/images/industrial.png'
     },
     {
       title: 'Automated Sanitation Systems',
       desc: 'High-pressure sterilization and automated cleaning cycles maintain strict hygiene across all processing zones.',
-      img: '/images/sanitation.jpg'
+      img: '/images/sanitation.png'
     },
     {
       title: 'Digital Carcass Traceability',
       desc: 'Each animal is digitally tracked through our system, ensuring transparency from farm to distribution.',
-      img: '/images/traceability.jpg'
+      img: '/images/traceability.png'
     },
     {
       title: 'Smart Temperature Monitoring',
       desc: 'Real-time sensors ensure storage and processing environments remain within regulated safety thresholds.',
-      img: '/images/temperature.jpg'
+      img: '/images/monitoring.png'
     },
   ];
 
