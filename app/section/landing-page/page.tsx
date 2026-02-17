@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   FaArrowRight,
@@ -87,6 +88,7 @@ export default function HomePage() {
                 Book <br /> Slaughtering
               </motion.button>
 
+            <Link href="/contact">
               <motion.button
                 variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                 whileHover={{ scale: 1.05 }}
@@ -95,6 +97,7 @@ export default function HomePage() {
               >
                 Contact Us
               </motion.button>
+            </Link>
             </motion.div>
 
             <motion.div
