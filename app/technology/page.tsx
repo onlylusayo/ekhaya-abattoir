@@ -41,14 +41,14 @@ export default function TechnologyPage() {
       <section className="relative min-h-[100vh] flex items-center px-6 overflow-hidden bg-black text-white">
 
         {/* Background Image */}
-        <div className="absolute inset-0">
+        {/* <div className="absolute inset-0">
           <Image
             src="/images/technology-hero.jpg"
             alt="Abattoir technology"
             fill
             className="w-full h-full object-cover opacity-40"
           />
-        </div>
+        </div> */}
 
         <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
