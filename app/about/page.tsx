@@ -66,7 +66,7 @@ export default function AboutPage() {
                 {/* Image placeholder */}
       <div className="w-full h-[260px] md:h-[320px] rounded-2xl shadow-xl overflow-hidden bg-gray-200">
         <Image
-          src="/images/abt-pic.jpg" 
+          src="/images/abattoir-.png" 
           alt="Livestock facility"
           width={500}
           height={320}

@@ -152,7 +152,7 @@ export default function HomePage() {
     {/* Image */}
     <div className="flex-1 relative w-full h-80 md:h-[400px] rounded-xl overflow-hidden shadow-lg">
       <Image
-        src="/images/abt-pic.jpg"
+        src="/images/abattoir-.png"
         alt="About Ekhaya Abattoir"
         fill
         className="object-cover"
@@ -296,7 +296,7 @@ export default function HomePage() {
               className="relative h-[320px] rounded-xl overflow-hidden shadow-lg"
             >
               <Image
-                src="/images/s-process.png"
+                src="/images/slaughter.png"
                 alt="Humane slaughter process"
                 fill
                 className="object-cover"
